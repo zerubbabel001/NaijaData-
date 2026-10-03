@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NaijaData Go</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #172033;
+    }
+
+    .top {
+      background: #0a6b3f;
+      color: white;
+      padding: 22px 18px 34px;
+    }
+
+    .brand {
+      margin: 0;
+      font-size: 25px;
+    }
+
+    .welcome {
+      margin: 10px 0 0;
+      font-size: 15px;
+      opacity: 0.95;
+    }
+
+    main {
+      max-width: 520px;
+      margin: -18px auto 0;
+      padding: 0 16px 32px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+
+    label {
+      display: block;
+      margin: 14px 0 7px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    input, select {
+      border: 1px solid #cbd5e1;
+      background: white;
+    }
+
+    button {
+      margin-top: 20px;
+      border: none;
+      background: #0a6b3f;
+      color: white;
+      font-weight: bold;
+    }
+
+    button:active {
+      background: #075130;
+    }
+
+    .notice {
+      color: #526176;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .status {
+      display: none;
+      margin-top: 15px;
+      padding: 12px;
+      background: #e9f8ef;
+      border-radius: 10px;
+      color: #075130;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      color: #718096;
+      font-size: 13px;
+      padding-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <h1 class="brand">NaijaData Go</h1>
+    <p class="welcome">Buy data quickly and simply.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Buy Data</h2>
+
+      <label for="network">Choose network</label>
+      <select id="network">
+        <option value="">Select network</option>
+        <option>MTN</option>
+        <option>Airtel</option>
+        <option>Glo</option>
+        <option>9mobile</option>
+      </select>
+
+      <label for="phone">Phone number</label>
+      <input id="phone" type="tel" placeholder="0801 234 5678">
+
+      <label for="plan">Choose data plan</label>
+      <select id="plan">
+        <option value="">Select a plan</option>
+        <option>500 MB</option>
+        <option>1 GB</option>
+        <option>2 GB</option>
+        <option>5 GB</option>
+      </select>
+
+      <button onclick="showDemoMessage()">Continue</button>
+
+      <p id="status" class="status"></p>
+    </section>
+
+    <section class="card">
+      <h2>Important</h2>
+      <p class="notice">
+        This is the NaijaData Go demo version. No payment is collected and no data is sent yet.
+      </p>
+    </section>
+
+    <footer>
+      NaijaData Go • Demo version
+    </footer>
+  </main>
+
+  <script>
+    function showDemoMessage() {
+      const network = document.getElementById("network").value;
+      const phone = document.getElementById("phone").value;
+      const plan = document.getElementById("plan").value;
+      const status = document.getElementById("status");
+
+      if (!network || !phone || !plan) {
+        status.textContent = "Please choose a network, enter a phone number, and select a plan.";
+        status.style.display = "block";
+        return;
+      }
+
+      status.textContent = "Demo saved: " + plan + " on " + network + " for " + phone + ". No payment or data purchase has been made.";
+      status.style.display = "block";
+    }
+  </script>
+</body>
+</html>
